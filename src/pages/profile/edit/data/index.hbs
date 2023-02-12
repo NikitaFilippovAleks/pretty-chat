@@ -3,33 +3,35 @@
     {{> profileAvatar text=false}}
   </div>
 
-  <div class="profile-edit-data__info">
-    {{#> profileInfoEdit title='Email'}}
-      {{> input name='email' placeholder='email@mail.com' class='input_secondary'}}
-    {{/profileInfoEdit}}
+  <form class="profile-edit-data__form" onsubmit="event.preventDefault()">
+    <div class="profile-edit-data__info">
+      {{#> profileInfoEdit title='Email'}}
+        {{> input name='email' placeholder='email@mail.com' class='input_secondary'}}
+      {{/profileInfoEdit}}
 
-    {{#> profileInfoEdit title='Login'}}
-      {{> input name='login' placeholder='Ivan1234' class='input_secondary'}}
-    {{/profileInfoEdit}}
+      {{#> profileInfoEdit title='Login'}}
+        {{> input name='login' placeholder='Ivan1234' class='input_secondary'}}
+      {{/profileInfoEdit}}
 
-    {{#> profileInfoEdit title='First name'}}
-      {{> input name='first_name' placeholder='Ivan' class='input_secondary'}}
-    {{/profileInfoEdit}}
+      {{#> profileInfoEdit title='First name'}}
+        {{> input name='first_name' placeholder='Ivan' class='input_secondary'}}
+      {{/profileInfoEdit}}
 
-    {{#> profileInfoEdit title='Second name'}}
-      {{> input name='second_name' placeholder='Ivanov' class='input_secondary'}}
-    {{/profileInfoEdit}}
+      {{#> profileInfoEdit title='Second name'}}
+        {{> input name='second_name' placeholder='Ivanov' class='input_secondary'}}
+      {{/profileInfoEdit}}
 
-    {{#> profileInfoEdit title='Display name'}}
-      {{> input name='display_name' placeholder='Ivan' class='input_secondary'}}
-    {{/profileInfoEdit}}
+      {{#> profileInfoEdit title='Display name'}}
+        {{> input name='display_name' placeholder='Ivan' class='input_secondary'}}
+      {{/profileInfoEdit}}
 
-    {{#> profileInfoEdit title='Phone'}}
-      {{> input name='phone' placeholder='+7 (999) 999 99 99' class='input_secondary'}}
-    {{/profileInfoEdit}}
-  </div>
+      {{#> profileInfoEdit title='Phone'}}
+        {{> input name='phone' placeholder='+7 (999) 999 99 99' class='input_secondary'}}
+      {{/profileInfoEdit}}
+    </div>
 
-  <div class="profile-edit-data__buttons">
-    {{> buttonMain text='Save' class='primary'}}
-  </div>
+    <div class="profile-edit-data__buttons">
+      {{> buttonMain text='Save' class='primary' type='button'}}
+    </div>
+  </form>
 {{/layoutProfile}}
