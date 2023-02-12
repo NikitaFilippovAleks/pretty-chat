@@ -1,0 +1,27 @@
+{{#> layoutProfile }}
+  <div class="profile-main__avatar">
+    {{> profileAvatar text='Name'}}
+  </div>
+
+  <div class="profile-main__info">
+    {{> profileInfoShow title='Email' data='email@mail.com'}}
+
+    {{> profileInfoShow title='Login' data='Ivan239'}}
+
+    {{> profileInfoShow title='First name' data='Ivan'}}
+
+    {{> profileInfoShow title='Second name' data='Ivanov'}}
+
+    {{> profileInfoShow title='Display name' data='Ivan'}}
+
+    {{> profileInfoShow title='Phone' data='+7 (999) 999 99 99'}}
+  </div>
+
+  <div class="profile-main__buttons">
+    {{> buttonMain text='Change data' class='primary' mb='20px'}}
+
+    {{> buttonMain text='Change password' class='primary' mb='20px'}}
+
+    {{> buttonMain text='Log out' class='danger'}}
+  </div>
+{{/layoutProfile}}
