@@ -1,0 +1,19 @@
+{{#> layoutProfile }}
+  <div class="profile-edit-password__info">
+    {{#> profileInfoEdit title='Old password'}}
+      {{> input name='old_password' placeholder='password' class='input_secondary'}}
+    {{/profileInfoEdit}}
+
+    {{#> profileInfoEdit title='New password'}}
+      {{> input name='new_password' placeholder='password' class='input_secondary'}}
+    {{/profileInfoEdit}}
+
+    {{#> profileInfoEdit title='Repeat new password'}}
+      {{> input name='repeated_new_password' placeholder='password' class='input_secondary'}}
+    {{/profileInfoEdit}}
+  </div>
+
+  <div class="profile-edit-password__buttons">
+    {{> buttonMain text='Save' class='primary'}}
+  </div>
+{{/layoutProfile}}
