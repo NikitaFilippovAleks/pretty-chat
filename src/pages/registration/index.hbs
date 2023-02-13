@@ -1,0 +1,25 @@
+{{#> layoutMain }}
+  {{#> layoutCard secondary=true}}
+    {{> title text='Registration' mt='65px' mb='60px'}}
+
+    <form onsubmit="event.preventDefault()">
+      {{> input name='first_name' placeholder='First name' class='input_primary' mb='20px'}}
+
+      {{> input name='second_name' placeholder='Second name' class='input_primary' mb='20px'}}
+
+      {{> input name='login' placeholder='Login' class='input_primary' mb='20px'}}
+
+      {{> input name='email' placeholder='Email' class='input_primary' mb='20px'}}
+
+      {{> input name='phone' placeholder='Phone' class='input_primary' mb='20px'}}
+
+      {{> input name='password' placeholder='Password' class='input_primary' mb='20px'}}
+
+      {{> input name='confirm_password' placeholder='Confirm password' class='input_primary' mb='40px'}}
+
+      {{> buttonMain text='Sign up' class='primary' type='submit' mb='10px'}}
+    </form>
+
+    {{> buttonMain text='Sign in' class='secondary' type='button' mb='10px'}}
+  {{/layoutCard}}
+{{/layoutMain}}

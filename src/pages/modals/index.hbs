@@ -1,0 +1,38 @@
+{{#> layoutMain }}
+  {{#> layoutCard secondary=false}}
+    <div class="modals__title">
+      {{> title text='Download file'}}
+    </div>
+    
+    <button class="modals__button" type="button">
+      Choose file on your pc
+    </button>
+
+
+    {{> buttonMain class='primary' text='Change' type='button' mb='53px'}}
+  {{/layoutCard}}
+
+  {{#> layoutCard secondary=false}}
+    <div class="modals__title">
+      {{> title text='File downloaded'}}
+    </div>
+    
+    <span class="modals__file">pic.jpg</span>
+
+
+    {{> buttonMain class='primary' text='Change' type='button' mb='53px'}}
+  {{/layoutCard}}
+
+  {{#> layoutCard secondary=false}}
+    <div class="modals__title">
+      {{> title text='Error, try again' class='title_error'}}
+    </div>
+    
+    <button class="modals__button">
+      Choose file on your pc
+    </button>
+
+
+    {{> buttonMain class='primary' text='Change' type='button' mb='53px'}}
+  {{/layoutCard}}
+{{/layoutMain}}
