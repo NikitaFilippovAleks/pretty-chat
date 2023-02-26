@@ -1,0 +1,30 @@
+<div class="chats-list">
+  <div class="chats-list__header">
+    <div class="chats-list__header__content">
+      <div class="chats__left-section__header__content__info">
+        <img src="https://media.istockphoto.com/id/1067347086/es/foto/gato-con-ojos-azules-se-ve-en-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=Ms8f2_r-u27JrwI1xFl_XfvHpCPA1teXjp7McyOygEM="
+              alt="ProfileImage">
+
+        <h3>Ivan Ivanov</h3>
+      </div>
+
+      <div class="chats-list__header__content__nav">
+        <button>
+          <span>Profile</span>
+
+          <img src="{{IconArrowForward}}" alt="ArrowForward">
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    {{>chatsListItem imageSrc='https://images.freeimages.com/images/previews/748/poodle-posing-in-couch-1637336.jpg' 
+                     firstName='Ivan' 
+                     secondName='Ivanon' 
+                     message='Hello, how are you? Im fine thank you.' 
+                     date='10:15' 
+                     unreadMessagesCount='3' selected=true}}
+  </div>
+</div>

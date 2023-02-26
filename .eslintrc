@@ -11,6 +11,7 @@
   "rules": {
     "comma-dangle": ["error", "never"],
     "semi": 1,
+    "sort-imports": ["error", { "ignoreCase": true, "allowSeparatedGroups": true }],
     "import/extensions": [1, { "extensions": [".ts"] }],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["postcss.config.js"]}],
     "max-len": ["error", { "code": 130 }]

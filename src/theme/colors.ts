@@ -1,5 +1,6 @@
 module.exports = {
   mainBackground: '#284D67',
+  white: '#FFFFFF',
   light: '#D9D9D9',
   gray: '#9E9E9E',
   darkPrimary: '#282828',
