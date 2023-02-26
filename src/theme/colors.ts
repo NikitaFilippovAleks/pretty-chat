@@ -9,4 +9,4 @@ module.exports = {
   blueLight: '#B2C3D5',
   red: '#FF453A',
   redDark: '#3E2221'
-}
+};

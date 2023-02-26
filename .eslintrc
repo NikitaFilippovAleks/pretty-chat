@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "semi": 1,
+    "import/extensions": [1, { "extensions": [".ts"] }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["postcss.config.js"]}],
+    "max-len": ["error", { "code": 130 }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts"]
+      }
+    }
+  },
+  "ignorePatterns": ["*.config.js"]
+}

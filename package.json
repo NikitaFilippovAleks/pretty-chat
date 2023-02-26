@@ -4,18 +4,29 @@
   "description": "",
   "scripts": {
     "start": "npm run build && node ./server.js",
-    "dev": "parcel ./static/index.html --no-cache --open",
-    "build": "parcel build ./static/index.html --no-cache"
+    "dev": "tsc --noEmit && parcel ./static/index.html --no-cache --open",
+    "build": "tsc --noEmit && parcel build ./static/index.html --no-cache",
+    "lint": "eslint . && stylelint '**/*.pcss'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars-precompile": "1.0.1",
+    "@types/express": "4.17.17",
+    "@types/node": "18.14.1",
+    "@typescript-eslint/eslint-plugin": "5.53.0",
+    "@typescript-eslint/parser": "5.53.0",
+    "eslint": "8.34.0",
+    "eslint-config-airbnb-base": "15.0.0",
     "parcel": "2.8.3",
     "postcss": "8.4.21",
     "postcss-nested": "6.0.0",
-    "postcss-simple-vars": "7.0.1"
+    "postcss-simple-vars": "7.0.1",
+    "stylelint": "15.2.0",
+    "stylelint-config-recess-order": "4.0.0",
+    "stylelint-order": "^6.0.2",
+    "typescript": "4.9.5"
   },
   "dependencies": {
     "express": "4.18.2",

@@ -1,10 +1,11 @@
 import Handlebars from 'handlebars/dist/handlebars.runtime';
+import { TemplateDelegate } from 'handlebars';
 
-import buttonBack from './components/button/back/index.js';
+import buttonBack from './components/button/back/index';
 import buttonMain from './components/button/main/index.hbs';
 import input from './components/input/index.hbs';
 import navigation from './components/navigation/index.hbs';
-import profileAvatar from './components/profile/avatar/index.js';
+import profileAvatar from './components/profile/avatar/index';
 import profileInfoEdit from './components/profile/info/edit/index.hbs';
 import profileInfoShow from './components/profile/info/show/index.hbs';
 import title from './components/title/index.hbs';
@@ -39,13 +40,13 @@ Handlebars.registerPartial({
   title
 });
 
-function render(html) {
-  const root = document.querySelector('#root');
+function render(html: string) {
+  const root = document.querySelector('#root') as HTMLElement;
 
   root.innerHTML = html;
 }
 
-const routes = {
+const routes: { [key: string] : TemplateDelegate} = {
   authorization,
   error404,
   error500,
@@ -55,14 +56,14 @@ const routes = {
   registration,
   modals,
   chats
-}
+};
 
-window.goToPage = function(name) {
+window.goToPage = (name: string) => {
   const page = routes[name];
 
-  render(page());
-}
+  render(page({}));
+};
 
 window.addEventListener('DOMContentLoaded', () => {
-  render(authorization());
-})
+  render(authorization({}));
+});
