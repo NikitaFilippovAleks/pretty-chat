@@ -9,12 +9,19 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+    "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
+    "no-param-reassign": [1, { "props": false }],
+    "no-underscore-dangle": 0,
     "semi": 1,
     "sort-imports": ["error", { "ignoreCase": true, "allowSeparatedGroups": true }],
     "import/extensions": [1, { "extensions": [".ts"] }],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["postcss.config.js"]}],
-    "max-len": ["error", { "code": 130 }]
+    "max-len": ["error", { "code": 130 }],
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
   },
   "settings": {
     "import/resolver": {

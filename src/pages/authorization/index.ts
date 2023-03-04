@@ -1,19 +1,19 @@
 import template from './index.hbs';
 
+import FormsAuth from '../../components/form/auth';
 import Navigation from '../../components/navigation';
-
-import IconArrowForward from '../../../static/icons/IconArrowForward.svg';
 
 import Block from '../../utils/Block';
 
-class ChatsPage extends Block {
+class AuthorizationPage extends Block {
   init() {
     this.children.navigation = new Navigation();
+    this.children.form = new FormsAuth();
   }
 
   render() {
-    return this.compile(template, { ...this.props, IconArrowForward });
+    return this.compile(template, this.props);
   }
 }
 
-export default ChatsPage;
+export default AuthorizationPage;

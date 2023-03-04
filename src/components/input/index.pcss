@@ -1,27 +1,20 @@
 .input {
+  position: relative;
+  
   width: 100%;
 
-  color: $light;
-  text-align: center;
+  &__error {
+    position: absolute;
+    bottom: -14;
+    left: 0;
 
-  background-color: $darkLight;
-  border: 0;
-  border-radius: 10px;
+    display: none;
 
-  &:focus {
-    outline: none;
-  }
+    font-size: 10px;
+    color: $red;
 
-  &_primary {
-    padding: 15px 0;
-
-    line-height: 20px;
-  }
-
-  &_secondary {
-    padding: 7px 0;
-  
-    font-size: 12px;
-    line-height: 14px;
+    &_show {
+      display: inline-block;
+    }
   }
 }

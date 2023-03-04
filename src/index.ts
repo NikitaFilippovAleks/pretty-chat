@@ -1,5 +1,4 @@
 import Handlebars from 'handlebars/dist/handlebars.runtime';
-import { TemplateDelegate } from 'handlebars';
 
 import buttonBack from './components/button/back/index';
 import buttonMain from './components/button/main/index.hbs';
@@ -9,6 +8,7 @@ import chatsDialogHeader from './components/chats/dialog/header/index';
 import chatsDialogMessage from './components/chats/dialog/message/index.hbs';
 import chatsList from './components/chats/list/index.hbs';
 import chatsListItem from './components/chats/list/item/index.hbs';
+import form from './components/form/index.hbs';
 import input from './components/input/index.hbs';
 import navigation from './components/navigation/index.hbs';
 import profileAvatar from './components/profile/avatar/index';
@@ -21,15 +21,7 @@ import layoutMain from './layout/main/index.hbs';
 import layoutProfile from './layout/profile/index.hbs';
 import layoutWindow from './layout/window/index.hbs';
 
-import authorization from './pages/authorization/index.hbs';
-import chats from './pages/chats/index';
-import error404 from './pages/errors/404/index.hbs';
-import error500 from './pages/errors/500/index.hbs';
-import modals from './pages/modals/index.hbs';
-import profileEditData from './pages/profile/edit/data/index.hbs';
-import profileEditPassword from './pages/profile/edit/password/index.hbs';
-import profileMain from './pages/profile/main/index.hbs';
-import registration from './pages/registration/index.hbs';
+import renderDom from './utils/renderDom';
 
 Handlebars.registerPartial({
   buttonBack,
@@ -40,6 +32,7 @@ Handlebars.registerPartial({
   chatsDialogMessage,
   chatsList,
   chatsListItem,
+  form,
   input,
   layoutCard,
   layoutMain,
@@ -52,30 +45,6 @@ Handlebars.registerPartial({
   title
 });
 
-function render(html: string) {
-  const root = document.querySelector('#root') as HTMLElement;
-
-  root.innerHTML = html;
-}
-
-const routes: { [key: string] : TemplateDelegate} = {
-  authorization,
-  error404,
-  error500,
-  profileEditData,
-  profileEditPassword,
-  profileMain,
-  registration,
-  modals,
-  chats
-};
-
-window.goToPage = (name: string) => {
-  const page = routes[name];
-
-  render(page({}));
-};
-
 window.addEventListener('DOMContentLoaded', () => {
-  render(authorization({}));
+  renderDom('authorization');
 });

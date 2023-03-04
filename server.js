@@ -7,5 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('./dist/'));
 
 app.listen(PORT, () => {
+  /* eslint-disable no-console */
   console.log(`App listening on port ${PORT}!`);
+  /* eslint-enable no-console */
 });
