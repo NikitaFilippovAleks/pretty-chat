@@ -1,15 +1,17 @@
 {{#> layoutMain }}
+  {{{navigation}}}
+
   {{#> layoutCard secondary=false}}
     <div class="modals__title">
       {{> title text='Download file'}}
     </div>
     
-    <button class="modals__button">
+    <button class="modals__button" type="button">
       Choose file on your pc
     </button>
 
 
-    {{> buttonMain class='primary' text='Change' mb='53px'}}
+    {{> buttonMain class='primary' text='Change' type='button' mb='53px'}}
   {{/layoutCard}}
 
   {{#> layoutCard secondary=false}}
@@ -20,7 +22,7 @@
     <span class="modals__file">pic.jpg</span>
 
 
-    {{> buttonMain class='primary' text='Change' mb='53px'}}
+    {{> buttonMain class='primary' text='Change' type='button' mb='53px'}}
   {{/layoutCard}}
 
   {{#> layoutCard secondary=false}}
@@ -33,6 +35,6 @@
     </button>
 
 
-    {{> buttonMain class='primary' text='Change' mb='53px'}}
+    {{> buttonMain class='primary' text='Change' type='button' mb='53px'}}
   {{/layoutCard}}
 {{/layoutMain}}

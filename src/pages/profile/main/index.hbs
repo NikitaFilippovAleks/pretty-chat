@@ -1,27 +1,36 @@
-{{#> layoutProfile }}
-  <div class="profile-main__avatar">
-    {{> profileAvatar text='Name'}}
-  </div>
+{{#> layoutMain }}
+  {{{navigation}}}
 
-  <div class="profile-main__info">
-    {{> profileInfoShow title='Email' data='email@mail.com'}}
+  {{#> layoutWindow }}
+    <div class="layout-profile__back-button">
+      {{> buttonBack text='Profile' modifier='light' light=true}}
+    </div>
+    <div class="layout-profile">
+      <div class="profile-main__avatar">
+        {{> profileAvatar text='Name'}}
+      </div>
 
-    {{> profileInfoShow title='Login' data='Ivan239'}}
+      <div class="profile-main__info">
+        {{> profileInfoShow title='Email' data='email@mail.com'}}
 
-    {{> profileInfoShow title='First name' data='Ivan'}}
+        {{> profileInfoShow title='Login' data='Ivan239'}}
 
-    {{> profileInfoShow title='Second name' data='Ivanov'}}
+        {{> profileInfoShow title='First name' data='Ivan'}}
 
-    {{> profileInfoShow title='Display name' data='Ivan'}}
+        {{> profileInfoShow title='Second name' data='Ivanov'}}
 
-    {{> profileInfoShow title='Phone' data='+7 (999) 999 99 99'}}
-  </div>
+        {{> profileInfoShow title='Display name' data='Ivan'}}
 
-  <div class="profile-main__buttons">
-    {{> buttonMain text='Change data' class='primary' mb='20px'}}
+        {{> profileInfoShow title='Phone' data='+7 (999) 999 99 99'}}
+      </div>
 
-    {{> buttonMain text='Change password' class='primary' mb='20px'}}
+      <div class="profile-main__buttons">
+        {{> buttonMain text='Change data' class='primary' type='button' mb='20px'}}
 
-    {{> buttonMain text='Log out' class='danger'}}
-  </div>
-{{/layoutProfile}}
+        {{> buttonMain text='Change password' class='primary' type='button' mb='20px'}}
+
+        {{> buttonMain text='Log out' class='danger' type='button'}}
+      </div>
+    </div>
+  {{/layoutWindow}}
+{{/layoutMain}}

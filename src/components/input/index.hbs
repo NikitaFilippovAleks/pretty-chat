@@ -1,1 +1,16 @@
-<input class="input {{class}}" name={{name}} placeholder='{{placeholder}}' style="margin-bottom: {{mb}};">
+{{#if title}}
+  {{#>profileInfoEdit title=title}}
+    <div class="input" style="margin-bottom: {{mb}};">
+      {{{inputField}}}
+
+      <span class="input__error {{#if error}}input__error_show{{/if}}">{{error}}</span>
+    </div>
+  {{/profileInfoEdit}}
+{{else}}
+<div class="input" style="margin-bottom: {{mb}};">
+  {{{inputField}}}
+
+  <span class="input__error {{#if error}}input__error_show{{/if}}">{{error}}</span>
+</div>
+{{/if}}
+

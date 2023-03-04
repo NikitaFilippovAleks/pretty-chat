@@ -1,13 +1,11 @@
 {{#> layoutMain }}
+  {{{navigation}}}
+
   {{#> layoutCard secondary=true}}
     {{> title text='Welcome' mt='65px' mb='60px'}}
 
-    {{> input name='login' placeholder='Login' class='input_primary' mb='20px'}}
+    {{{form}}}
 
-    {{> input name='password' placeholder='Password' class='input_primary' mb='60px'}}
-
-    {{> buttonMain text='Sign in' class='primary' mb='10px'}}
-
-    {{> buttonMain text='Sign up' class='secondary' mb='15px'}}
+    {{> buttonMain text='Sign up' class='secondary' type='button' mb='15px'}}
   {{/layoutCard}}
 {{/layoutMain}}

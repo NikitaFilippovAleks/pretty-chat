@@ -1,0 +1,23 @@
+<div class="chats-item {{#if selected}}chats-item_selected{{/if}}">
+  <div class="chats-item__left-block">
+    <img src="{{imageSrc}}" alt="UserImage">
+
+    <div class="chats-item__left-block__body">
+      <h3>{{firstName}} {{secondName}}</h3>
+
+      <span>{{message}}</span>
+    </div>
+  </div>
+  
+  <div class="chats-item__right-block">
+    <span class="chats-item__right-block__date">{{date}}</span>
+
+    {{#if unreadMessagesCount}}
+    <div class="chats-item__right-block__unread-messages">
+      <span>
+        {{unreadMessagesCount}}
+      </span>
+    </div>
+    {{/if}}
+  </div>
+</div>
