@@ -1,7 +1,7 @@
 import Input from '../../components/input';
 import InputField from '../../components/input/field';
 
-import isValid, { FieldNames } from './isValid';
+import checkValue, { FieldNames } from './checkValue';
 
 const checkInputValue = (input: Input, inputField: InputField, fieldName: FieldNames) => {
   if (inputField.value.length === 0) {
@@ -10,9 +10,11 @@ const checkInputValue = (input: Input, inputField: InputField, fieldName: FieldN
     return false;
   }
 
-  if (!isValid(fieldName, inputField.value)) {
-    input.setProps({ error: 'Value is not valid' });
-    inputField.setProps({ error: 'Value is not valid', value: inputField.value });
+  const { isValid, error } = checkValue(fieldName, inputField.value);
+
+  if (!isValid) {
+    input.setProps({ error });
+    inputField.setProps({ error, value: inputField.value });
     return false;
   }
 

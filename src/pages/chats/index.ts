@@ -6,7 +6,11 @@ import IconArrowForward from '../../../static/icons/IconArrowForward.svg';
 
 import Block from '../../utils/Block';
 
-class ChatsPage extends Block {
+interface InterfaceChatsPageProps {
+  IconArrowForward: SVGElement
+}
+
+class ChatsPage extends Block<InterfaceChatsPageProps> {
   init() {
     this.children.navigation = new Navigation();
   }

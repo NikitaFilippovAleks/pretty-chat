@@ -1,8 +1,16 @@
 import template from './index.hbs';
 
 import Block from '../../../utils/Block';
+import { FieldNames } from '../../../utils/data/checkValue';
 
-class InputField extends Block {
+export interface InterfaceInputFieldsProps {
+  name: FieldNames,
+  placeholder: string,
+  class: string,
+  events: Record<string, () => void>
+}
+
+class InputField extends Block<InterfaceInputFieldsProps> {
   get value() {
     return (this.element as HTMLInputElement).value;
   }

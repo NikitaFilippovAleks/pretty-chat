@@ -4,7 +4,7 @@ import Block from '../../utils/Block';
 import ButtonBase from '../button/base';
 import renderDom from '../../utils/renderDom';
 
-class Navigation extends Block {
+class Navigation extends Block<Record<string, never>> {
   init() {
     this.children.buttons = [
       new ButtonBase({

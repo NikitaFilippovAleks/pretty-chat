@@ -4,8 +4,9 @@ import Block from '../../../utils/Block';
 import Input from '../../input';
 import InputField from '../../input/field';
 
-import checkInputValue from '../../../utils/data/checkInputValue';
-import { FieldNames } from '../../../utils/data/isValid';
+import { FieldNames } from '../../../utils/data/checkValue';
+import formSubmit from '../../../utils/eventHandlers/fromSubmit';
+import inputBlur from '../../../utils/eventHandlers/inputBlur';
 
 const inputs = [
   {
@@ -46,29 +47,16 @@ const inputs = [
   }
 ];
 
-class FormProfileEditData extends Block {
+interface InterfaceFormProfileEditProps {
+  events: Record<string, () => void>,
+}
+
+class FormProfileEditData extends Block<InterfaceFormProfileEditProps> {
   constructor() {
     super({
       events: {
         submit: (event: SubmitEvent) => {
-          event.preventDefault();
-
-          const data: Record<string, unknown> = {};
-          let correct = true;
-
-          inputs.forEach((item, index) => {
-            const input = this.children.inputs[index];
-            const { inputField } = this.children.inputs[index].children;
-
-            data[item.name] = inputField.value;
-
-            correct = checkInputValue(input, inputField, item.name);
-          });
-
-          /* eslint-disable no-console */
-          if (!correct) console.log('Invalid fields');
-          else console.log('data:', data);
-          /* eslint-enable no-console */
+          formSubmit(event, inputs, this);
         }
       }
     });
@@ -84,10 +72,7 @@ class FormProfileEditData extends Block {
           class: item.class,
           events: {
             blur: () => {
-              const input = this.children.inputs[index];
-              const { inputField } = this.children.inputs[index].children;
-
-              checkInputValue(input, inputField, item.name);
+              inputBlur(item, index, this);
             }
           }
         })

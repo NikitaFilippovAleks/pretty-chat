@@ -5,7 +5,7 @@ import Navigation from '../../components/navigation';
 import Block from '../../utils/Block';
 import FormRegistration from '../../components/form/registration';
 
-class RegistrationPage extends Block {
+class RegistrationPage extends Block<Record<string, never>> {
   init() {
     this.children.navigation = new Navigation();
     this.children.form = new FormRegistration();

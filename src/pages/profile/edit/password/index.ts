@@ -5,7 +5,7 @@ import Navigation from '../../../../components/navigation';
 
 import Block from '../../../../utils/Block';
 
-class ProfileEditPasswordPage extends Block {
+class ProfileEditPasswordPage extends Block<Record<string, never>> {
   init() {
     this.children.navigation = new Navigation();
     this.children.form = new FormProfileEditPassword();

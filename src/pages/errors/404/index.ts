@@ -4,7 +4,7 @@ import Navigation from '../../../components/navigation';
 
 import Block from '../../../utils/Block';
 
-class Error404Page extends Block {
+class Error404Page extends Block<Record<string, never>> {
   init() {
     this.children.navigation = new Navigation();
   }
