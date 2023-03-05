@@ -1,3 +1,11 @@
 {{#> layoutMain }}
-  <span>Заглушка</span>
+  {{{navigation}}}
+
+  {{#> layoutWindow }}
+    <div class="chats">
+      {{>chatsList}}
+
+      {{>chatsDialog}}
+    </div>
+  {{/layoutWindow}}
 {{/layoutMain}}

@@ -1,21 +1,12 @@
-{{#> layoutProfile }}
-  <form class="profile-edit-password__form" onsubmit="event.preventDefault()">
-    <div class="profile-edit-password__info">
-      {{#> profileInfoEdit title='Old password'}}
-        {{> input name='old_password' placeholder='password' class='input_secondary'}}
-      {{/profileInfoEdit}}
+{{#> layoutMain }}
+  {{{navigation}}}
 
-      {{#> profileInfoEdit title='New password'}}
-        {{> input name='new_password' placeholder='password' class='input_secondary'}}
-      {{/profileInfoEdit}}
-
-      {{#> profileInfoEdit title='Repeat new password'}}
-        {{> input name='repeated_new_password' placeholder='password' class='input_secondary'}}
-      {{/profileInfoEdit}}
+  {{#> layoutWindow }}
+    <div class="layout-profile__back-button">
+      {{> buttonBack text='Profile' modifier='light' light=true}}
     </div>
-
-    <div class="profile-edit-password__buttons">
-      {{> buttonMain text='Save' class='primary' type='submit'}}
+    <div class="layout-profile">
+      {{{form}}}
     </div>
-  </form>
-{{/layoutProfile}}
+  {{/layoutWindow}}
+{{/layoutMain}}

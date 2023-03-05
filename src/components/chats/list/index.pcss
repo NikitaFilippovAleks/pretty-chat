@@ -1,0 +1,62 @@
+.chats-list {
+  width: 340px;
+  height: 100%;
+
+  background-color: $darkPrimary;
+  border-right: 1px solid $gray;
+
+  &__header {
+    height: 100px;
+    padding-top: 20px;
+    padding-right: 14px;
+    padding-left: 20px;
+
+    &__content {
+      display: flex;
+
+      flex-direction: row;
+
+      justify-content: space-between;
+
+      &__info {
+        display: flex;
+
+        align-items: flex-end;
+
+        & img {
+          width: 50px;
+          height: 50px;
+          margin-right: 8px;
+
+          border-radius: 50%;
+
+          object-fit: cover;
+        }
+
+        & h3 {
+          font-weight: 500;
+          line-height: 18px;
+          color: $white;
+        }
+      }
+
+      &__nav {
+        & button {
+          display: flex;
+
+          align-items: center;
+
+          background-color: transparent;
+          border: 0;
+
+          & span {
+            margin-right: 6px;
+
+            font-size: 14px;
+            color: $light;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="chats-dialog">
+  {{>chatsDialogHeader imageSrc='https://media.istockphoto.com/id/1067347086/es/foto/gato-con-ojos-azules-se-ve-en-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=Ms8f2_r-u27JrwI1xFl_XfvHpCPA1teXjp7McyOygEM='
+                       firstName='Ivan'
+                       secondName='Ivanov'}}
+
+  <div class="chats-dialog__messages">
+    {{>chatsDialogMessage message='Generating random paragraphs can be an excellent way for writers to get their creative flow going at the beginning of the day. The writer has no idea what topic the random paragraph will be about when it appears.'
+                          isUserMessage=false}}
+    {{>chatsDialogMessage message='Generating random paragraphs can be an excellent way for writers to get their creative.'
+                          isUserMessage=true}}
+  </div>
+
+  {{> chatsDialogForm}}
+</div>

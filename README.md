@@ -20,6 +20,10 @@ https://ornate-pastelito-adabc5.netlify.app
 Ознакомиться с дизайном приложения можно в Figma: 
 https://www.figma.com/file/5jbsrG6EpajkidTjlQgwBu/Praktikum.Messanger?node-id=0%3A1&t=qpPOgwm7Wbev0KPE-0
 
+### Технологии
+
+Проект написан с помощью __typescript__ и __handlebars__.
+
 ## Установка
 
 - `npm install`   — установка пакетов,
