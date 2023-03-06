@@ -54,7 +54,7 @@ const inputs = [
 ];
 
 export interface InterfaceFormRegistrationProps {
-  events: Record<string, () => void>,
+  events: Record<string, (event: SubmitEvent) => void>,
 }
 
 class FormRegistration extends Block<InterfaceFormRegistrationProps> {

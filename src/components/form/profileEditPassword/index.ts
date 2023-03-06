@@ -30,7 +30,7 @@ const inputs = [
 ];
 
 interface InterfaceFormProfileEditPasswordProps {
-  events: Record<string, () => void>,
+  events: Record<string, (event: SubmitEvent) => void>
 }
 
 class FormProfileEditPassword extends Block<InterfaceFormProfileEditPasswordProps> {

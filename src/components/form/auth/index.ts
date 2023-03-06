@@ -24,7 +24,7 @@ const inputs = [
 ];
 
 interface InterfaceFormsAuthProps {
-  events: Record<string, () => void>,
+  events: Record<string, (event: SubmitEvent) => void>,
 }
 
 class FormsAuth extends Block<InterfaceFormsAuthProps> {

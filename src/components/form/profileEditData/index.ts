@@ -48,7 +48,7 @@ const inputs = [
 ];
 
 interface InterfaceFormProfileEditProps {
-  events: Record<string, () => void>,
+  events: Record<string, (event: SubmitEvent) => void>,
 }
 
 class FormProfileEditData extends Block<InterfaceFormProfileEditProps> {
