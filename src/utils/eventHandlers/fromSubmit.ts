@@ -3,7 +3,7 @@ import Block from '../Block';
 import checkInputValue from '../data/checkInputValue';
 import { FieldNames } from '../data/checkValue';
 
-const formSubmit = <T extends Block<Record<string, any>>, >(event: SubmitEvent, inputs: { name: FieldNames }[], form: T) => {
+const formSubmit = <T extends Block>(event: SubmitEvent, inputs: { name: FieldNames }[], form: T) => {
   event.preventDefault();
 
   const data: Record<string, unknown> = {};

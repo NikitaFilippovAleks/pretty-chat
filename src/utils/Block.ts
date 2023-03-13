@@ -2,17 +2,24 @@ import { TemplateDelegate } from 'handlebars';
 
 import EventBus from './EventBus';
 
-class Block<Props extends Record<string, any> = any, Element extends HTMLElement = HTMLElement> {
+type BlockTypes<P = any> = {
+  'init': [],
+  'component-did-mount': [],
+  'render': [],
+  'component-did-update': [P, P]
+}
+
+class Block<Props extends { [key: string]: any } = any, Element extends HTMLElement = HTMLElement> {
   static EVENTS = {
     INIT: 'init',
     CDM: 'component-did-mount',
     RENDER: 'render',
     CDU: 'component-did-update'
-  };
+  } as const;
 
   id = window.crypto.getRandomValues(new Uint32Array(1)).toString();
   private _element: Element;
-  private eventBus: EventBus;
+  private eventBus: EventBus<BlockTypes<Props>>;
   props: Props;
   children: Record<string, any>;
 
@@ -29,7 +36,7 @@ class Block<Props extends Record<string, any> = any, Element extends HTMLElement
     this.eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _registerEvents(eventBus: EventBus) {
+  private _registerEvents(eventBus: EventBus<BlockTypes>) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.RENDER, this._render.bind(this));

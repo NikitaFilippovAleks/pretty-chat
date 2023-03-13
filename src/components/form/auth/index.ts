@@ -27,12 +27,12 @@ interface InterfaceFormsAuthProps {
   events: Record<string, (event: SubmitEvent) => void>,
 }
 
-class FormsAuth extends Block<InterfaceFormsAuthProps> {
+class FormsAuth extends Block<InterfaceFormsAuthProps, HTMLFormElement> {
   constructor() {
     super({
       events: {
         submit: (event: SubmitEvent) => {
-          formSubmit(event, inputs, this);
+          formSubmit<FormsAuth>(event, inputs, this);
         }
       }
     });
@@ -48,7 +48,7 @@ class FormsAuth extends Block<InterfaceFormsAuthProps> {
           class: item.class,
           events: {
             blur: () => {
-              inputBlur(item, index, this);
+              inputBlur<FormsAuth>(item, index, this);
             }
           }
         })

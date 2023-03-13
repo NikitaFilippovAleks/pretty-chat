@@ -7,7 +7,9 @@ export interface InterfaceInputFieldsProps {
   name: FieldNames,
   placeholder: string,
   class: string,
-  events: Record<string, () => void>
+  events: Record<string, () => void>,
+  error?: string,
+  value?: string
 }
 
 class InputField extends Block<InterfaceInputFieldsProps> {
