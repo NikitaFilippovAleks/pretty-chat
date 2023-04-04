@@ -4,10 +4,10 @@ import Block from '../../../utils/Block';
 import Input from '../../input/text';
 import InputField from '../../input/text/field';
 
-import { StateInterface, withStore } from '../../../utils/Store';
 import { FieldNames } from '../../../utils/data/checkValue';
 import formSubmit from '../../../utils/eventHandlers/fromSubmit';
 import inputBlur from '../../../utils/eventHandlers/inputBlur';
+import { withStore } from '../../../utils/Store';
 
 import AuthController from '../../../controllers/AuthController';
 
@@ -94,10 +94,4 @@ class FormRegistration extends Block<InterfaceFormRegistrationProps> {
   }
 }
 
-export default withStore((state) => {
-  const userData = state.user?.data || {};
-
-  userData.isLoading = (userData as StateInterface).user?.isLoading;
-
-  return userData;
-})(FormRegistration);
+export default withStore(state => state.user.data)(FormRegistration);

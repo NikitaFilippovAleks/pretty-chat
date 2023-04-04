@@ -14,7 +14,7 @@ class ChatsDialogMessages extends Block<InterfacePropsWithStore> {
     this.children.messages = this.createMessages(this.props);
   }
 
-  componentDidUpdate(oldProps: InterfacePropsWithStore, newProps: InterfacePropsWithStore) {
+  componentDidUpdate(_: InterfacePropsWithStore, newProps: InterfacePropsWithStore) {
     this.children.messages = this.createMessages(newProps);
     return true;
   }

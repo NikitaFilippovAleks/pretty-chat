@@ -80,7 +80,7 @@ class HTTPTransport {
         resolve(xhr.response);
       };
 
-      xhr.onreadystatechange = (e) => {
+      xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status < 400) {
             resolve(xhr.response);

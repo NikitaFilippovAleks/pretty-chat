@@ -1,5 +1,5 @@
 import Input from '../../components/input/text';
-import InputField from '../../components/input/text/field';
+import { InputField } from '../../components/input/text/field';
 
 import checkValue, { FieldNames } from './checkValue';
 

@@ -1,7 +1,7 @@
 import { Indexed } from '../../typings/types/common';
 
 function merge(lhs: Indexed, rhs: Indexed) {
-  for (let p in rhs) {
+  for (const p in rhs) {
     if (!rhs.hasOwnProperty(p)) {
       continue;
     }
@@ -15,7 +15,7 @@ function merge(lhs: Indexed, rhs: Indexed) {
     } catch (e) {
       lhs[p] = rhs[p];
     }
-}
+  }
 
   return lhs;
 }

@@ -29,6 +29,7 @@
     "max-len": ["error", { "code": 130 }],
     "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
     "no-constructor-return": 0,
+    "no-prototype-builtins": 0,
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "no-use-before-define": "off",

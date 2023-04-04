@@ -30,7 +30,7 @@ class ChatsDialog extends Block<StateInterface['chats']> {
     });
   }
 
-  componentDidUpdate(oldProps: StateInterface['chats'], newProps: StateInterface['chats']) {
+  componentDidUpdate(_: StateInterface['chats'], newProps: StateInterface['chats']) {
     this.children.chatsDialogHeader = this.createChatsDialogHeader(newProps);
     return true;
   }

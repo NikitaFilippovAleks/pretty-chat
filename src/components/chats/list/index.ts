@@ -36,7 +36,7 @@ class ChatsList extends Block<InterfacePropsWithStore> {
     this.children.chats = this.createChats(this.props);
   }
 
-  protected componentDidUpdate(oldProps: InterfacePropsWithStore, newProps: InterfacePropsWithStore): boolean {
+  protected componentDidUpdate(_: InterfacePropsWithStore, newProps: InterfacePropsWithStore): boolean {
     this.children.chats = this.createChats(newProps);
 
     return true;

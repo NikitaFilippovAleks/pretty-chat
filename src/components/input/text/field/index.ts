@@ -13,7 +13,7 @@ export interface InterfaceInputFieldsProps {
   value?: string
 }
 
-class InputField extends Block<InterfaceInputFieldsProps> {
+export class InputField extends Block<InterfaceInputFieldsProps> {
   get value() {
     return (this.element as HTMLInputElement).value;
   }

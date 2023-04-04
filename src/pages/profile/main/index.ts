@@ -5,11 +5,13 @@ import ButtonMain from '../../../components/button/main';
 import ProfileAvatar from '../../../components/profile/avatar';
 import ProfileInfoShow from '../../../components/profile/info/show';
 
+import { InterfaceUser } from '../../../typings/types/User';
+
 import Block from '../../../utils/Block';
 
 import AuthController from '../../../controllers/AuthController';
 
-import { withStore } from '../../../utils/Store';
+import { StateInterface, withStore } from '../../../utils/Store';
 
 import Router from '../../../navigation/Router';
 import Routes from '../../../navigation/Routes';
@@ -41,7 +43,7 @@ const infos = [
   }
 ];
 
-class ProfileMainPage extends Block<Record<string, never>> {
+class ProfileMainPage extends Block<StateInterface['user']> {
   init() {
     this.children.buttonBack = new ButtonBack({
       text: 'Profile',
@@ -54,13 +56,13 @@ class ProfileMainPage extends Block<Record<string, never>> {
       }
     });
     this.children.avatar = new ProfileAvatar({
-      text: this.props.data.login
+      text: this.props.data!.login
     });
 
     this.children.infos = infos.map(item => (
       new ProfileInfoShow({
         title: item.title,
-        data: this.props.data[item.name]
+        data: this.props.data![(item.name as keyof InterfaceUser)] as string
       })
     ));
 
