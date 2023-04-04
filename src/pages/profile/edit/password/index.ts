@@ -1,14 +1,25 @@
 import template from './index.hbs';
 
+import ButtonBack from '../../../../components/button/back';
 import FormProfileEditPassword from '../../../../components/form/profileEditPassword';
-import Navigation from '../../../../components/navigation';
 
 import Block from '../../../../utils/Block';
 
-class ProfileEditPasswordPage extends Block {
+import Router from '../../../../navigation/Router';
+
+class ProfileEditPasswordPage extends Block<Record<string, never>> {
   init() {
-    this.children.navigation = new Navigation();
-    this.children.form = new FormProfileEditPassword();
+    this.children.form = new FormProfileEditPassword({});
+    this.children.buttonBack = new ButtonBack({
+      text: '',
+      modifier: 'light',
+      light: true,
+      events: {
+        click: () => {
+          Router.back();
+        }
+      }
+    });
   }
 
   render() {

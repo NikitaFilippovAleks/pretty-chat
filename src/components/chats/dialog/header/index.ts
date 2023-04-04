@@ -1,9 +1,34 @@
-import chatsDialogHeader from './index.hbs';
+import template from './index.hbs';
 
-import IconDots from '../../../../../static/icons/IconDots.svg';
+import ChatsDialogHeaderButton from './button';
+import ModalsEditChats from '../../../modals/editChats';
 
-export default (
-  { imageSrc, firstName, secondName }: { imageSrc: string, firstName: string, secondName: string}
-) => chatsDialogHeader({
-  IconDots, imageSrc, firstName, secondName
-});
+import ModalsController from '../../../../controllers/ModalsController';
+
+import { StateInterface, withStore } from '../../../../utils/Store';
+import Block from '../../../../utils/Block';
+
+interface InterfaceChatsDialogHeaderProps {
+  imageSrc: string;
+  firstName: string;
+  secondName: string;
+}
+
+class ChatsDialogHeader extends Block<InterfaceChatsDialogHeaderProps & StateInterface['modals']['editChats']> {
+  init() {
+    this.children.modalsEditChats = new ModalsEditChats({});
+    this.children.chatsDialogHeaderButton = new ChatsDialogHeaderButton({
+      events: {
+        click: () => {
+          ModalsController.editChatsToggler(!this.props.show);
+        }
+      }
+    });
+  }
+
+  render() {
+    return this.compile(template, { ...this.props });
+  }
+}
+
+export default withStore(state => state.modals.editChats)(ChatsDialogHeader);

@@ -1,7 +1,11 @@
 {{#>form}}
-  {{#each inputs}}
-    {{{this}}}
-  {{/each}}
+  {{#if isLoading}}
+    {{> throbber}}
+  {{else}}
+    {{#each inputs}}
+      {{{this}}}
+    {{/each}}
+  {{/if}}
 
   {{> buttonMain text='Sign up' class='primary' type='submit' mb='10px'}}
 {{/form}}

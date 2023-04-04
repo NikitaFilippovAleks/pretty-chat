@@ -1,6 +1,25 @@
-import chatsDialogForm from './index.hbs';
+import template from './index.hbs';
 
-import IconAttachFile from '../../../../../static/icons/IconAttachFile.svg';
 import IconSend from '../../../../../static/icons/IconSend.svg';
 
-export default () => chatsDialogForm({ IconAttachFile, IconSend });
+import Block from '../../../../utils/Block';
+import ChatsDialogFormInput from './input';
+
+interface InterfaceProps {
+  IconSend?: SVGElement;
+  events: {
+    submit: (event: SubmitEvent) => void;
+  }
+}
+
+class ChatsDialogForm extends Block<InterfaceProps> {
+  init() {
+    this.children.input = new ChatsDialogFormInput();
+  }
+
+  render() {
+    return this.compile(template, { ...this.props, IconSend });
+  }
+}
+
+export default ChatsDialogForm;

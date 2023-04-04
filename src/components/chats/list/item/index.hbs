@@ -1,16 +1,16 @@
-<div class="chats-item {{#if selected}}chats-item_selected{{/if}}">
+<button class="chats-item {{#if selected}}chats-item_selected{{/if}}">
   <div class="chats-item__left-block">
-    <img src="{{imageSrc}}" alt="UserImage">
+    <img src="{{#if avatar}}https://ya-praktikum.tech/api/v2/resources{{avatar}}{{else}}{{IconAvatar}}{{/if}}" alt="UserImage">
 
     <div class="chats-item__left-block__body">
-      <h3>{{firstName}} {{secondName}}</h3>
+      <h3>{{title}}</h3>
 
       <span>{{message}}</span>
     </div>
   </div>
   
   <div class="chats-item__right-block">
-    <span class="chats-item__right-block__date">{{date}}</span>
+    <span class="chats-item__right-block__date">{{time}}</span>
 
     {{#if unreadMessagesCount}}
     <div class="chats-item__right-block__unread-messages">
@@ -20,4 +20,4 @@
     </div>
     {{/if}}
   </div>
-</div>
+</button>

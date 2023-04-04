@@ -1,17 +1,17 @@
 {{#> layoutMain }}
-  {{{navigation}}}
-
   {{#> layoutWindow }}
     <div class="layout-profile__back-button">
-      {{> buttonBack text='Profile' modifier='light' light=true}}
+      {{{buttonBack}}}
     </div>
   
     <div class="layout-profile">
       <div class="profile-edit-data__avatar">
-        {{> profileAvatar text=false}}
+        {{{avatar}}}
       </div>
 
       {{{form}}}
     </div>
+
+    {{{modalsFile}}}
   {{/layoutWindow}}
 {{/layoutMain}}

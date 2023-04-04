@@ -1,9 +1,9 @@
-<div class="profile-avatar__wrapper">
+<button class="profile-avatar__wrapper" type="button">
   <div class="profile-avatar">
-    <img class="icon" src="{{IconAvatar}}" alt="Avatar">
+    <img class="icon" src="{{#if avatar}}https://ya-praktikum.tech/api/v2/resources{{avatar}}{{else}}{{IconAvatar}}{{/if}}" alt="Avatar">
   </div>
 
   {{#if text}}
       <span class="profile-avatar__title">{{text}}</span>
   {{/if}}
-</div>
+</button>
