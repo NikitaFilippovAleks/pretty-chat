@@ -1,12 +1,15 @@
 import template from './index.hbs';
 
 import Block from '../../../utils/Block';
-import Input from '../../input';
-import InputField from '../../input/field';
+import Input from '../../input/text';
+import InputField from '../../input/text/field';
 
+import { StateInterface, withStore } from '../../../utils/Store';
 import { FieldNames } from '../../../utils/data/checkValue';
 import formSubmit from '../../../utils/eventHandlers/fromSubmit';
 import inputBlur from '../../../utils/eventHandlers/inputBlur';
+
+import AuthController from '../../../controllers/AuthController';
 
 const inputs = [
   {
@@ -62,7 +65,7 @@ class FormRegistration extends Block<InterfaceFormRegistrationProps> {
     super({
       events: {
         submit: (event: SubmitEvent) => {
-          formSubmit(event, inputs, this);
+          formSubmit(event, inputs, this, AuthController.signup);
         }
       }
     });
@@ -91,4 +94,10 @@ class FormRegistration extends Block<InterfaceFormRegistrationProps> {
   }
 }
 
-export default FormRegistration;
+export default withStore((state) => {
+  const userData = state.user?.data || {};
+
+  userData.isLoading = (userData as StateInterface).user?.isLoading;
+
+  return userData;
+})(FormRegistration);

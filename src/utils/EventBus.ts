@@ -21,7 +21,7 @@ class EventBus<E extends { [Ev: string]: unknown[] }> {
 
   emit<K extends keyof E>(event: K, ...args: E[K]) {
     if (!this.listeners[event]) {
-      throw new Error(`No such event '${String(event)}'`);
+      return;
     }
 
     this.listeners[event]!.forEach(listener => listener(...args));

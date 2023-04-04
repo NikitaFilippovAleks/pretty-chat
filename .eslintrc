@@ -12,16 +12,27 @@
     "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
     "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
+    "no-continue": "off",
     "no-param-reassign": [1, { "props": false }],
+    "no-restricted-syntax": 0,
     "no-underscore-dangle": 0,
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": "error",
     "semi": 1,
     "sort-imports": ["error", { "ignoreCase": true, "allowSeparatedGroups": true }],
     "import/extensions": [1, { "extensions": [".ts"] }],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["postcss.config.js"]}],
+    "max-classes-per-file": [
+      "error",
+      { "ignoreExpressions": true, "max": 2 }
+    ],
     "max-len": ["error", { "code": 130 }],
     "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "no-constructor-return": 0,
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"]
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "error"
   },
   "settings": {
     "import/resolver": {

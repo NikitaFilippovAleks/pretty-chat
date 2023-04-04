@@ -1,0 +1,28 @@
+<div class="modals {{#if show}}modals_show{{/if}}">
+  {{{closeButton}}}
+
+  <div class="layout-card {{#if secondary}} layout-card_secondary{{else}} layout-card_primary{{/if}}">
+    <div class="modals__title">
+      {{> title text=title}}
+    </div>
+    
+    <div class="modals__body {{#if modalsList}}modals__body_list{{/if}}">
+      {{#if isLoading}}
+        {{> throbber}}
+      {{else}}
+        {{{centerElement}}}
+        {{!-- <div style="position: relative;">
+          <button class="inputFile__button" type="button">
+            {{text}}
+          </button>
+
+          <div class="inputFile__input">
+            {{{inputField}}}
+          </div>
+        </div> --}}
+      {{/if}}
+    </div>
+
+    {{{mainButton}}}
+  </div>
+</div>

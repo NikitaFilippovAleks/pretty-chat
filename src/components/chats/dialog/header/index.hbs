@@ -1,10 +1,17 @@
-<div class="chats-dialog-header">
-   <div class="chats-dialog-header__user">
-      <img src={{imageSrc}}
-            alt="ProfileImage">
-
-      <h3>{{firstName}} {{secondName}}</h3>
+<div class="chatsDialogHeader">
+   <div class="chatsDialogHeader__user">
+      {{#if imageSrc}}
+        <img src={{imageSrc}}
+              alt="ProfileImage">
+      {{/if}}
+      {{#if title}}
+        <h3>{{title}}</h3>
+      {{/if}}
     </div>
   
-  <img src="{{IconDots}}" alt="Dots">
+  <div class="chatsDialogHeader__buttonWrapper">
+    {{{chatsDialogHeaderButton}}}
+
+    {{{modalsEditChats}}}
+  </div>
 </div>

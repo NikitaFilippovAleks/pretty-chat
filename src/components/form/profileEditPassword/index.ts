@@ -1,12 +1,14 @@
 import template from './index.hbs';
 
 import Block from '../../../utils/Block';
-import Input from '../../input';
-import InputField from '../../input/field';
+import Input from '../../input/text';
+import InputField from '../../input/text/field';
 
 import { FieldNames } from '../../../utils/data/checkValue';
 import formSubmit from '../../../utils/eventHandlers/fromSubmit';
 import inputBlur from '../../../utils/eventHandlers/inputBlur';
+import UserController from '../../../controllers/UserController';
+import { withStore } from '../../../utils/Store';
 
 const inputs = [
   {
@@ -38,7 +40,7 @@ class FormProfileEditPassword extends Block<InterfaceFormProfileEditPasswordProp
     super({
       events: {
         submit: (event: SubmitEvent) => {
-          formSubmit(event, inputs, this);
+          formSubmit(event, inputs, this, UserController.updatePassword);
         }
       }
     });
@@ -67,4 +69,4 @@ class FormProfileEditPassword extends Block<InterfaceFormProfileEditPasswordProp
   }
 }
 
-export default FormProfileEditPassword;
+export default withStore(state => state.user)(FormProfileEditPassword);

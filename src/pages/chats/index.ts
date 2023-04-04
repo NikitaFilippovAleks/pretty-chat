@@ -1,10 +1,13 @@
 import template from './index.hbs';
 
-import Navigation from '../../components/navigation';
-
-import IconArrowForward from '../../../static/icons/IconArrowForward.svg';
+import ChatsDialog from '../../components/chats/dialog';
+import ChatsList from '../../components/chats/list';
+import ModalsAddUser from '../../components/modals/addUser';
+import ModalsCreateChat from '../../components/modals/createChat';
+import ModalsDeleteUser from '../../components/modals/deleteUser';
 
 import Block from '../../utils/Block';
+import ChatsController from '../../controllers/ChatsController';
 
 interface InterfaceChatsPageProps {
   IconArrowForward: SVGElement
@@ -12,11 +15,20 @@ interface InterfaceChatsPageProps {
 
 class ChatsPage extends Block<InterfaceChatsPageProps> {
   init() {
-    this.children.navigation = new Navigation();
+    this.children.chatsDialog = new ChatsDialog({});
+    this.children.chatsList = new ChatsList({ isLoading: true });
+
+    this.children.modalsCreateChat = new ModalsCreateChat({});
+    this.children.modalsAddUser = new ModalsAddUser({});
+    this.children.modalsDeleteUser = new ModalsDeleteUser({});
+
+    ChatsController.getChats().finally(() => {
+      this.children.chatsList.setProps({ isLoading: false });
+    });
   }
 
   render() {
-    return this.compile(template, { ...this.props, IconArrowForward });
+    return this.compile(template, { ...this.props });
   }
 }
 

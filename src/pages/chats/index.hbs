@@ -1,11 +1,13 @@
 {{#> layoutMain }}
-  {{{navigation}}}
-
   {{#> layoutWindow }}
     <div class="chats">
-      {{>chatsList}}
+      {{{chatsList}}}
 
-      {{>chatsDialog}}
+      {{{chatsDialog}}}
     </div>
+
+    {{{modalsCreateChat}}}
+    {{{modalsAddUser}}}
+    {{{modalsDeleteUser}}}
   {{/layoutWindow}}
 {{/layoutMain}}

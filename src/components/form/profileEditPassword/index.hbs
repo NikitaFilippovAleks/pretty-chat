@@ -1,8 +1,14 @@
 {{#>form}}
   <div class="profile-edit-password__info">
-    {{#each inputs}}
-      {{{this}}}
-    {{/each}}
+    {{#if isLoading}}
+      <div class="formProfileEditPassword__throbber">
+        {{> throbber}}
+      </div>
+    {{else}}
+      {{#each inputs}}
+        {{{this}}}
+      {{/each}}
+    {{/if}}
   </div>
 
   <div class="profile-edit-password__buttons">

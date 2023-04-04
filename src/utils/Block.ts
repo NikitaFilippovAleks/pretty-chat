@@ -9,7 +9,7 @@ type BlockTypes<P = any> = {
   'component-did-update': [P, P]
 }
 
-class Block<Props extends { [key: string]: any } = any, Element extends HTMLElement = HTMLElement> {
+class Block<Props extends { [key: string]: any }, Element extends HTMLElement = HTMLElement> {
   static EVENTS = {
     INIT: 'init',
     CDM: 'component-did-mount',
@@ -25,7 +25,6 @@ class Block<Props extends { [key: string]: any } = any, Element extends HTMLElem
 
   constructor(propsAndChildren: Props = {} as Props) {
     const eventBus = new EventBus();
-
     const { props, children } = this._getPropsAndChildren(propsAndChildren as Props);
 
     this.props = this._makePropsProxy(props);
@@ -107,7 +106,7 @@ class Block<Props extends { [key: string]: any } = any, Element extends HTMLElem
     const children: Record<string, Block<Props> | Block<Props>[]> = {};
 
     Object.entries(propsAndChildren).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.every(el => el instanceof Block)) {
+      if (Array.isArray(value) && value.length > 0 && value.every(el => el instanceof Block)) {
         children[key] = value;
       } else if (value instanceof Block) {
         children[key] = value;

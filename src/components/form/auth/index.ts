@@ -1,12 +1,15 @@
 import template from './index.hbs';
 
 import Block from '../../../utils/Block';
-import Input from '../../input';
-import InputField from '../../input/field';
+import Input from '../../input/text';
+import InputField from '../../input/text/field';
 
+import AuthController from '../../../controllers/AuthController';
 import { FieldNames } from '../../../utils/data/checkValue';
 import formSubmit from '../../../utils/eventHandlers/fromSubmit';
 import inputBlur from '../../../utils/eventHandlers/inputBlur';
+
+import { withStore } from '../../../utils/Store';
 
 const inputs = [
   {
@@ -32,7 +35,7 @@ class FormsAuth extends Block<InterfaceFormsAuthProps, HTMLFormElement> {
     super({
       events: {
         submit: (event: SubmitEvent) => {
-          formSubmit<FormsAuth>(event, inputs, this);
+          formSubmit<FormsAuth>(event, inputs, this, AuthController.signin);
         }
       }
     });
@@ -61,4 +64,4 @@ class FormsAuth extends Block<InterfaceFormsAuthProps, HTMLFormElement> {
   }
 }
 
-export default FormsAuth;
+export default withStore(state => state.user)(FormsAuth);

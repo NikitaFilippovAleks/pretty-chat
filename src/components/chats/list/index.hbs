@@ -1,30 +1,35 @@
-<div class="chats-list">
-  <div class="chats-list__header">
-    <div class="chats-list__header__content">
+<div class="chatsList">
+  <div class="chatsList__header">
+    <div class="chatsList__header__content">
       <div class="chats__left-section__header__content__info">
-        <img src="https://media.istockphoto.com/id/1067347086/es/foto/gato-con-ojos-azules-se-ve-en-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=Ms8f2_r-u27JrwI1xFl_XfvHpCPA1teXjp7McyOygEM="
+        <img src="{{#if avatar}}https://ya-praktikum.tech/api/v2/resources{{avatar}}{{else}}{{IconAvatar}}{{/if}}"
               alt="ProfileImage">
 
-        <h3>Ivan Ivanov</h3>
+        <h3>{{first_name}} {{second_name}}</h3>
       </div>
 
-      <div class="chats-list__header__content__nav">
-        <button>
-          <span>Profile</span>
-
-          <img src="{{IconArrowForward}}" alt="ArrowForward">
-        </button>
+      <div class="chatsList__header__content__nav">
+        {{{buttonProfile}}}
       </div>
     </div>
 
   </div>
 
-  <div>
-    {{>chatsListItem imageSrc='https://images.freeimages.com/images/previews/748/poodle-posing-in-couch-1637336.jpg' 
+  <div class="chatsList__body">
+    {{#if isLoading}}
+      <div class="chatsList__body__throbber">
+        {{> throbber}}
+      </div>
+    {{else}}
+      {{#each chats}}
+        {{{this}}}
+      {{/each}}
+    {{/if}}
+    {{!-- {{>chatsListItem imageSrc='https://images.freeimages.com/images/previews/748/poodle-posing-in-couch-1637336.jpg' 
                      firstName='Ivan' 
                      secondName='Ivanon' 
                      message='Hello, how are you? Im fine thank you.' 
                      date='10:15' 
-                     unreadMessagesCount='3' selected=true}}
+                     unreadMessagesCount='3' selected=true}} --}}
   </div>
 </div>

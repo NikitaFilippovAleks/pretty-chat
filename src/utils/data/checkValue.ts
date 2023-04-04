@@ -1,16 +1,16 @@
 export enum FieldNames {
-  'first_name',
-  'second_name',
-  'display_name',
-  'login',
-  'email',
-  'password',
-  'confirm_password',
-  'old_password',
-  'new_password',
-  'repeated_new_password',
-  'phone',
-  'message'
+  first_name = 'first_name',
+  second_name = 'second_name',
+  display_name = 'display_name',
+  login = 'login',
+  email = 'email',
+  password = 'password',
+  confirm_password = 'confirm_password',
+  old_password = 'old_password',
+  new_password = 'new_password',
+  repeated_new_password = 'repeated_new_password',
+  phone = 'phone',
+  message = 'message'
 }
 
 const checkValue = (fieldName: FieldNames, value: string) => {
