@@ -14,7 +14,19 @@ class ChatsDialogMessages extends Block<InterfacePropsWithStore> {
     this.children.messages = this.createMessages(this.props);
   }
 
-  componentDidUpdate(_: InterfacePropsWithStore, newProps: InterfacePropsWithStore) {
+  scrollToBottom() {
+    const element = document.getElementById('chatsDialogMessages');
+
+    element!.scrollTo(0, element!.scrollHeight);
+  }
+
+  componentDidUpdate(oldProps: InterfacePropsWithStore, newProps: InterfacePropsWithStore) {
+    if (oldProps.selectedChatId !== newProps.selectedChatId) {
+      setTimeout(() => {
+        this.scrollToBottom();
+      });
+    }
+
     this.children.messages = this.createMessages(newProps);
     return true;
   }

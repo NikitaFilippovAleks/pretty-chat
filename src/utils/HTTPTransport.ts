@@ -25,6 +25,10 @@ function queryStringify(data: Record<string, unknown>): string {
   return paramsArray.join('');
 }
 
+interface HTTPMethod {
+  <Response>(path: string, data?: { [key: string]: any }): Promise<Response>
+}
+
 class HTTPTransport {
   static API_URL = 'https://ya-praktikum.tech/api/v2';
   protected endpoint: string;
@@ -33,34 +37,28 @@ class HTTPTransport {
     this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
   }
 
-  get<Response>(path: string, data?: { [key: string]: any }): Promise<Response> {
+  get: HTTPMethod = (path, data) => {
     let newPath = this.endpoint + path;
 
     if (data) newPath += queryStringify(data);
 
     return this.request(newPath, { method: Methods.GET });
-  }
+  };
 
-  put<Response>(path: string, data?: { [key: string]: any }): Promise<Response> {
-    return this.request(
-      this.endpoint + path,
-      { method: Methods.PUT, data }
-    );
-  }
+  put: HTTPMethod = (path, data) => this.request(
+    this.endpoint + path,
+    { method: Methods.PUT, data }
+  );
 
-  post<Response>(path: string, data?: { [key: string]: any }): Promise<Response> {
-    return this.request(
-      this.endpoint + path,
-      { method: Methods.POST, data }
-    );
-  }
+  post: HTTPMethod = (path, data) => this.request(
+    this.endpoint + path,
+    { method: Methods.POST, data }
+  );
 
-  delete<Response>(path: string, data?: { [key: string]: any }): Promise<Response> {
-    return this.request(
-      this.endpoint + path,
-      { method: Methods.DELETE, data }
-    );
-  }
+  delete: HTTPMethod = (path, data) => this.request(
+    this.endpoint + path,
+    { method: Methods.DELETE, data }
+  );
 
   private request = <Response>(url: string, options: InterfaceOptions, timeout = 5000): Promise<Response> => {
     const { method, data, headers } = options;
