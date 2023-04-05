@@ -1,12 +1,15 @@
 import template from './index.hbs';
 
 import Block from '../../../utils/Block';
-import Input from '../../input';
-import InputField from '../../input/field';
+import Input from '../../input/text';
+import InputField from '../../input/text/field';
 
+import AuthController from '../../../controllers/AuthController';
 import { FieldNames } from '../../../utils/data/checkValue';
 import formSubmit from '../../../utils/eventHandlers/fromSubmit';
 import inputBlur from '../../../utils/eventHandlers/inputBlur';
+
+import { withStore } from '../../../utils/Store';
 
 const inputs = [
   {
@@ -24,15 +27,15 @@ const inputs = [
 ];
 
 interface InterfaceFormsAuthProps {
-  events: Record<string, () => void>,
+  events: Record<string, (event: SubmitEvent) => void>,
 }
 
-class FormsAuth extends Block<InterfaceFormsAuthProps> {
+class FormsAuth extends Block<InterfaceFormsAuthProps, HTMLFormElement> {
   constructor() {
     super({
       events: {
         submit: (event: SubmitEvent) => {
-          formSubmit(event, inputs, this);
+          formSubmit<FormsAuth>(event, inputs, this, AuthController.signin);
         }
       }
     });
@@ -48,7 +51,7 @@ class FormsAuth extends Block<InterfaceFormsAuthProps> {
           class: item.class,
           events: {
             blur: () => {
-              inputBlur(item, index, this);
+              inputBlur<FormsAuth>(item, index, this);
             }
           }
         })
@@ -61,4 +64,4 @@ class FormsAuth extends Block<InterfaceFormsAuthProps> {
   }
 }
 
-export default FormsAuth;
+export default withStore(state => state.user)(FormsAuth);

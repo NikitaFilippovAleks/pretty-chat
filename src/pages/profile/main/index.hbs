@@ -1,35 +1,25 @@
 {{#> layoutMain }}
-  {{{navigation}}}
-
   {{#> layoutWindow }}
     <div class="layout-profile__back-button">
-      {{> buttonBack text='Profile' modifier='light' light=true}}
+      {{{buttonBack}}}
     </div>
     <div class="layout-profile">
       <div class="profile-main__avatar">
-        {{> profileAvatar text='Name'}}
+        {{{avatar}}}
       </div>
 
       <div class="profile-main__info">
-        {{> profileInfoShow title='Email' data='email@mail.com'}}
-
-        {{> profileInfoShow title='Login' data='Ivan239'}}
-
-        {{> profileInfoShow title='First name' data='Ivan'}}
-
-        {{> profileInfoShow title='Second name' data='Ivanov'}}
-
-        {{> profileInfoShow title='Display name' data='Ivan'}}
-
-        {{> profileInfoShow title='Phone' data='+7 (999) 999 99 99'}}
+        {{#each infos}}
+          {{{this}}}
+        {{/each}}
       </div>
 
       <div class="profile-main__buttons">
-        {{> buttonMain text='Change data' class='primary' type='button' mb='20px'}}
+        {{{buttonChangeData}}}
 
-        {{> buttonMain text='Change password' class='primary' type='button' mb='20px'}}
+        {{{buttonChangePassword}}}
 
-        {{> buttonMain text='Log out' class='danger' type='button'}}
+        {{{buttonLogout}}}
       </div>
     </div>
   {{/layoutWindow}}

@@ -2,7 +2,14 @@ import template from './index.hbs';
 
 import Block from '../../../utils/Block';
 
-class ButtonBase extends Block<Record<string, never>> {
+interface InterfaceButtonBaseProps {
+  text: string;
+  events: {
+    click: () => void
+  }
+}
+
+class ButtonBase extends Block<InterfaceButtonBaseProps> {
   render() {
     return this.compile(template, this.props);
   }

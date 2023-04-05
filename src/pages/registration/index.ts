@@ -1,14 +1,27 @@
 import template from './index.hbs';
 
-import Navigation from '../../components/navigation';
+import ButtonMain from '../../components/button/main';
+import FormRegistration from '../../components/form/registration';
 
 import Block from '../../utils/Block';
-import FormRegistration from '../../components/form/registration';
+
+import { withStore } from '../../utils/Store';
+
+import Router from '../../navigation/Router';
+import Routes from '../../navigation/Routes';
 
 class RegistrationPage extends Block<Record<string, never>> {
   init() {
-    this.children.navigation = new Navigation();
-    this.children.form = new FormRegistration();
+    this.children.form = new FormRegistration({});
+    this.children.buttonMain = new ButtonMain({
+      class: 'secondary',
+      mb: '10px',
+      type: 'button',
+      text: 'Sign in',
+      events: {
+        click: () => Router.go(Routes.Index)
+      }
+    });
   }
 
   render() {
@@ -16,4 +29,4 @@ class RegistrationPage extends Block<Record<string, never>> {
   }
 }
 
-export default RegistrationPage;
+export default withStore(state => state.user)(RegistrationPage);

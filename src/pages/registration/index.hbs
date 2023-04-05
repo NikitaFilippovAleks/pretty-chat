@@ -1,11 +1,15 @@
 {{#> layoutMain }}
-  {{{navigation}}}
-  
   {{#> layoutCard secondary=true}}
     {{> title text='Registration' mt='65px' mb='60px'}}
 
-    {{{form}}}
+    {{#if isLoading}}
+      <div class="pagesRegistration__throbber">
+        {{> throbber}}
+      </div>
+    {{else}}
+      {{{form}}}
+    {{/if}}
 
-    {{> buttonMain text='Sign in' class='secondary' type='button' mb='10px'}}
+    {{{buttonMain}}}
   {{/layoutCard}}
 {{/layoutMain}}

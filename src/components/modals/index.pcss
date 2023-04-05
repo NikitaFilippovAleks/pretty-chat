@@ -1,0 +1,43 @@
+.modals {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+  &__title {
+    margin-top: 64px;
+  }
+
+  &__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+
+    &_list {
+      height: fit-content;
+      max-height: 300px;
+    }
+  }
+
+  &__inputWrapper {
+    position: relative;
+    height: fit-content;
+  }
+
+  &__backgroundButton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  &_show {
+    display: flex;
+  }
+}

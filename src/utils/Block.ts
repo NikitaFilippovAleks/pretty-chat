@@ -1,22 +1,30 @@
+import { TemplateDelegate } from 'handlebars';
+
 import EventBus from './EventBus';
 
-class Block<Props extends Record<string, any>> {
+type BlockTypes<P = any> = {
+  'init': [],
+  'component-did-mount': [],
+  'render': [],
+  'component-did-update': [P, P]
+}
+
+class Block<Props extends { [key: string]: any }, Element extends HTMLElement = HTMLElement> {
   static EVENTS = {
     INIT: 'init',
     CDM: 'component-did-mount',
     RENDER: 'render',
     CDU: 'component-did-update'
-  };
+  } as const;
 
   id = window.crypto.getRandomValues(new Uint32Array(1)).toString();
-  private _element: HTMLElement;
-  private eventBus: EventBus;
+  private _element: Element;
+  private eventBus: EventBus<BlockTypes<Props>>;
   props: Props;
   children: Record<string, any>;
 
-  constructor(propsAndChildren = {}) {
+  constructor(propsAndChildren: Props = {} as Props) {
     const eventBus = new EventBus();
-
     const { props, children } = this._getPropsAndChildren(propsAndChildren as Props);
 
     this.props = this._makePropsProxy(props);
@@ -27,7 +35,7 @@ class Block<Props extends Record<string, any>> {
     this.eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _registerEvents(eventBus: EventBus) {
+  private _registerEvents(eventBus: EventBus<BlockTypes>) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.RENDER, this._render.bind(this));
@@ -65,7 +73,7 @@ class Block<Props extends Record<string, any>> {
 
   private _render() {
     const fragment = this.render();
-    const newElement = fragment.firstChild as HTMLElement;
+    const newElement = fragment.firstChild as Element;
 
     if (this._element) {
       this._removeEvents();
@@ -98,7 +106,7 @@ class Block<Props extends Record<string, any>> {
     const children: Record<string, Block<Props> | Block<Props>[]> = {};
 
     Object.entries(propsAndChildren).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.every(el => el instanceof Block)) {
+      if (Array.isArray(value) && value.length > 0 && value.every(el => el instanceof Block)) {
         children[key] = value;
       } else if (value instanceof Block) {
         children[key] = value;
@@ -140,7 +148,7 @@ class Block<Props extends Record<string, any>> {
     Object.keys(events).forEach(eventName => this._element.removeEventListener(eventName, events[eventName]));
   }
 
-  protected compile(template: (props: Props) => string, props: Props) {
+  protected compile(template: TemplateDelegate, props: Props) {
     const propsAndStubs: { [key: string]: any } = { ...props };
 
     Object.entries(this.children).forEach(([name, component]) => {
@@ -176,7 +184,7 @@ class Block<Props extends Record<string, any>> {
     stub.replaceWith(component.getContent());
   }
 
-  setProps = (nextProps: any) => {
+  setProps = (nextProps: Partial<Props>) => {
     if (!nextProps) {
       return;
     }

@@ -1,11 +1,15 @@
 {{#> layoutMain }}
-  {{{navigation}}}
-
   {{#> layoutCard secondary=true}}
     {{> title text='Welcome' mt='65px' mb='60px'}}
 
-    {{{form}}}
+    {{#if isLoading}}
+      <div class="pagesAuthorization__throbber">
+        {{> throbber}}
+      </div>
+    {{else}}
+      {{{form}}}
+    {{/if}}
 
-    {{> buttonMain text='Sign up' class='secondary' type='button' mb='15px'}}
+    {{{buttonMain}}}
   {{/layoutCard}}
 {{/layoutMain}}

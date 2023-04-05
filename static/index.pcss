@@ -1,30 +1,47 @@
 @import '../src/components/button/index.pcss';
+
 @import '../src/components/chats/dialog/index.pcss';
 @import '../src/components/chats/dialog/form/index.pcss';
 @import '../src/components/chats/dialog/header/index.pcss';
-@import '../src/components/chats/dialog/message/index.pcss';
+@import '../src/components/chats/dialog/messages/index.pcss';
+@import '../src/components/chats/dialog/messages/item/index.pcss';
 @import '../src/components/chats/list/index.pcss';
 @import '../src/components/chats/list/item/index.pcss';
+
 @import '../src/components/form/index.pcss';
-@import '../src/components/input/index.pcss';
-@import '../src/components/input//field/index.pcss';
-@import '../src/components/navigation/index.pcss';
+@import '../src/components/form/profileEditData/index.pcss';
+@import '../src/components/form/profileEditPassword/index.pcss';
+@import '../src/components/input/file/index.pcss';
+@import '../src/components/input/text/index.pcss';
+@import '../src/components/input/text/field/index.pcss';
+
+@import '../src/components/modals/index.pcss';
+@import '../src/components/modals/deleteUser/list/index.pcss';
+@import '../src/components/modals/deleteUser/list/item/index.pcss';
+@import '../src/components/modals/editChats/index.pcss';
+@import '../src/components/modals/editChats/button/index.pcss';
+@import '../src/components/modals/editChats/closeButton/index.pcss';
+
 @import '../src/components/profile/avatar/index.pcss';
 @import '../src/components/profile/info/edit/index.pcss';
 @import '../src/components/profile/info/show/index.pcss';
+@import '../src/components/throbber/index.pcss';
 @import '../src/components/title/index.pcss';
+
 
 @import '../src/layout/card/index.pcss';
 @import '../src/layout/main/index.pcss';
 @import '../src/layout/profile/index.pcss';
 @import '../src/layout/window/index.pcss';
 
+
+@import '../src/pages/authorization/index.pcss';
 @import '../src/pages/chats/index.pcss';
 @import '../src/pages/errors/index.pcss';
-@import '../src/pages/modals/index.pcss';
 @import '../src/pages/profile/edit/data/index.pcss';
 @import '../src/pages/profile/edit/password/index.pcss';
 @import '../src/pages/profile/main/index.pcss';
+@import '../src/pages/registration/index.pcss';
 
 @font-face {
   font-family: "Inter";
@@ -61,4 +78,8 @@ body {
   overflow: hidden;
 
   font-family: 'Inter', sans-serif;
+}
+
+button {
+  cursor: pointer;
 }

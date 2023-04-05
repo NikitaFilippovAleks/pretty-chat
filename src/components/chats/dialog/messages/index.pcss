@@ -1,0 +1,17 @@
+.chatsDialogMessages {
+  display: flex;
+
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+  overflow: auto;
+  /* justify-content: flex-end; */
+  
+  /* Hide scrollbar for */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar { /* Chrome, Safari and Opera */
+    display: none;
+  }
+}
