@@ -74,11 +74,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
-    // console.log('routes:', Router)
     await AuthController.fetchUser();
 
-    // if (!user) throw new Error();
-    // console.log('here:', user)
     Router.start();
 
     if (!isProtectedRoute) {
