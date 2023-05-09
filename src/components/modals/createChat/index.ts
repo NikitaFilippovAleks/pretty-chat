@@ -18,7 +18,7 @@ interface InterfaceProps {
 
 class ModalsCreateChat extends Block<InterfaceProps & StateInterface['modals']['createChat']> {
   init() {
-    this.children.closeButton = new ModalsCloseButton({
+    this.children.ModalsCloseButton = new ModalsCloseButton({
       events: {
         click: () => {
           ModalsController.createChatToggler(false);

@@ -17,7 +17,7 @@ interface InterfaceModalsFileProps {
 
 class ModalsFile extends Block<InterfaceModalsFileProps & StateInterface['modals']['file']> {
   init() {
-    this.children.closeButton = new ModalsCloseButton({
+    this.children.ModalsCloseButton = new ModalsCloseButton({
       events: {
         click: () => {
           ModalsController.modalsFileToggle(false);

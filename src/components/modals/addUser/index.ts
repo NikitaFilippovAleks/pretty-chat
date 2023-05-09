@@ -23,7 +23,7 @@ type InterfacePropsWithStore = InterfaceProps & StateInterface['modals']['addUse
 
 class ModalsAddUser extends Block<InterfacePropsWithStore> {
   init() {
-    this.children.closeButton = new ModalsCloseButton({
+    this.children.ModalsCloseButton = new ModalsCloseButton({
       events: {
         click: () => {
           ModalsController.addUserToggler(false);
