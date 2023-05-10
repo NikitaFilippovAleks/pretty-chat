@@ -10,7 +10,8 @@
     "buildParcel": "tsc --noEmit && parcel build ./static/indexParcel.html --no-cache",
     "build": "webpack --mode production",
     "lint": "eslint . && stylelint '**/*.pcss'",
-    "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'"
+    "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
