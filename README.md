@@ -3,7 +3,7 @@
 Простой чат для обмена сообщениями и файлами
 
 Ознакомиться с __PrettyChat__  можно по ссылке:
-https://ornate-pastelito-adabc5.netlify.app
+https://bba036q2joc43lnm40us.containers.yandexcloud.net/
 
 ## Функции и возможности
 
