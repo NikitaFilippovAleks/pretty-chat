@@ -6,10 +6,10 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static('./distWebpack/'));
+app.use(express.static('./dist/'));
 
 app.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, 'distWebpack', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {

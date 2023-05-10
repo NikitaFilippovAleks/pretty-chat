@@ -8,7 +8,7 @@ module.exports = {
     index: path.resolve(__dirname, './src/index.ts')
   },
   output: {
-    path: path.resolve(__dirname, './distWebpack')
+    path: path.resolve(__dirname, './dist')
   },
   resolve: {
     extensions: ['.ts', '.js']
