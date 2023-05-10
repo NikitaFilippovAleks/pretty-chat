@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "startParcel": "npm run build && node ./server.js",
-    "start": "node ./server.js",
+    "start": "npm run build && node ./server.js",
+    "startServer": "node ./server.js",
     "dev": "parcel ./static/index.html --no-cache --open",
     "buildParcel": "tsc --noEmit && parcel build ./static/indexParcel.html --no-cache",
     "build": "webpack --mode production",
@@ -32,6 +33,7 @@
     "eslint-config-airbnb-base": "15.0.0",
     "handlebars-loader": "1.7.3",
     "html-webpack-plugin": "5.5.1",
+    "husky": "^8.0.3",
     "jsdom": "^21.1.1",
     "mini-css-extract-plugin": "^2.7.3",
     "mocha": "10.2.0",
@@ -56,5 +58,11 @@
   "dependencies": {
     "express": "4.18.2",
     "handlebars": "4.7.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint",
+      "pre-push": "npm run other command"
+    }
   }
 }
