@@ -24,9 +24,16 @@ https://www.figma.com/file/5jbsrG6EpajkidTjlQgwBu/Praktikum.Messanger?node-id=0%
 
 Проект написан с помощью __typescript__ и __handlebars__.
 
-## Установка
+## Разработка
 
-- `npm install`   — установка пакетов,
-- `npm run start`     — запуск приложения на localhost:3000,
-- `npm run dev`   — запуск приложения в режиме разработчика,
-- `npm run build` — сборка приложения.
+### Сборка и запуск приложения
+
+- `npm install`   — установка пакетов
+- `npm run build` — сборка приложения
+- `npm run startServer` — запуск собранного приложения на 3000 порту
+- `npm run start` — сборка и запуск
+
+### Тесты
+
+- `npm run test` — запуск тестов
+
