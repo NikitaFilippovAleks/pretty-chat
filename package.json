@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "startParcel": "npm run build && node ./server.js",
     "start": "npm run build && node ./server.js",
-    "startServer": "node ./server.js",
-    "dev": "parcel ./static/index.html --no-cache --open",
-    "buildParcel": "tsc --noEmit && parcel build ./static/indexParcel.html --no-cache",
     "build": "webpack --mode production",
+    "startServer": "node ./server.js",
+    "dev": "webpack serve --mode development",
+    "startParcel": "npm run build && node ./server.js",
+    "buildParcel": "tsc --noEmit && parcel build ./static/indexParcel.html --no-cache",
+    "devParcel": "parcel ./static/index.html --no-cache --open",
     "lint": "eslint . && stylelint '**/*.pcss'",
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint"
+    ],
+    "*.pcss": [
+      "stylelint"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -36,6 +45,7 @@
     "html-webpack-plugin": "5.5.1",
     "husky": "8.0.3",
     "jsdom": "21.1.1",
+    "lint-staged": "13.2.2",
     "mini-css-extract-plugin": "2.7.3",
     "mocha": "10.2.0",
     "mock-require": "3.0.3",
@@ -54,7 +64,9 @@
     "ts-node": "10.9.1",
     "typescript": "4.9.5",
     "webpack": "5.82.0",
-    "webpack-cli": "5.0.2"
+    "webpack-cli": "5.0.2",
+    "webpack-dev-server": "4.15.0",
+    "webpack-merge": "5.8.0"
   },
   "dependencies": {
     "express": "4.18.2",
