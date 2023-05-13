@@ -29,7 +29,7 @@ class ModalsDeleteUser extends Block<InterfacePropsWithStore> {
   }
 
   init() {
-    this.children.closeButton = new ModalsCloseButton({
+    this.children.ModalsCloseButton = new ModalsCloseButton({
       events: {
         click: () => {
           ModalsController.deleteUserToggler(false);

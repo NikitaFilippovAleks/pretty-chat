@@ -1,4 +1,4 @@
-import template from './index.hbs';
+import template from './buttonMain.hbs';
 
 import Block from '../../../utils/Block';
 

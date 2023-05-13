@@ -8,10 +8,10 @@ interface InterfaceModalsFileCloseButtonProps {
   }
 }
 
-class ModalsFileCloseButton extends Block<InterfaceModalsFileCloseButtonProps> {
+class ModalsCloseButton extends Block<InterfaceModalsFileCloseButtonProps> {
   render() {
     return this.compile(template, this.props);
   }
 }
 
-export default ModalsFileCloseButton;
+export default ModalsCloseButton;

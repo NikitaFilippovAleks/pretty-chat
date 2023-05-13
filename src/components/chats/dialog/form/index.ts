@@ -14,7 +14,7 @@ interface InterfaceProps {
 
 class ChatsDialogForm extends Block<InterfaceProps> {
   init() {
-    this.children.input = new ChatsDialogFormInput();
+    this.children.ChatsDialogFormInput = new ChatsDialogFormInput();
   }
 
   render() {

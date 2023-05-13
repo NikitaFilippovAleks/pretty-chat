@@ -1,4 +1,4 @@
-import template from './index.hbs';
+import template from './buttonBack.hbs';
 
 import IconArrowBackBlue from '../../../../static/icons/IconArrowBackBlue.svg';
 import IconArrowBackLight from '../../../../static/icons/IconArrowBackLight.svg';

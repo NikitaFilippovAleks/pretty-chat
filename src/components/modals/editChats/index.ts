@@ -53,7 +53,7 @@ class ModalsEditChats extends Block<InterfaceProps & StateInterface['modals']['e
       }
     });
 
-    this.children.closeButton = new ModalsEditChatsCloseButton({
+    this.children.ModalsEditChatsCloseButton = new ModalsEditChatsCloseButton({
       events: {
         click: () => {
           ModalsController.editChatsToggler(false);

@@ -13,18 +13,18 @@ class ChatsDialog extends Block<StateInterface['chats']> {
   init() {
     this.children.chatsDialogHeader = this.createChatsDialogHeader(this.props);
     this.children.chatsDialogMessages = new ChatsDialogMessages({});
-    this.children.form = new ChatsDialogForm({
+    this.children.ChatsDialogForm = new ChatsDialogForm({
       events: {
         submit: (event: SubmitEvent) => {
           event.preventDefault();
 
-          const message = this.children.form.children.input.value;
+          const message = this.children.ChatsDialogForm.children.ChatsDialogFormInput.value;
 
           if (message.length === 0) return;
 
           MessagesController.sendMessage(this.props.selectedId!, message);
 
-          this.children.form.children.input.element.value = '';
+          this.children.ChatsDialogForm.children.ChatsDialogFormInput.element.value = '';
         }
       }
     });

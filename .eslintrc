@@ -21,19 +21,21 @@
     "semi": 1,
     "sort-imports": ["error", { "ignoreCase": true, "allowSeparatedGroups": true }],
     "import/extensions": [1, { "extensions": [".ts"] }],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["postcss.config.js"]}],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["postcss.config.js", "mochaSetup.js", "**/*.test.ts"]}],
     "max-classes-per-file": [
       "error",
-      { "ignoreExpressions": true, "max": 2 }
+      { "ignoreExpressions": true, "max": 6 }
     ],
     "max-len": ["error", { "code": 130 }],
     "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
     "no-constructor-return": 0,
+    "no-new": 0,
     "no-prototype-builtins": 0,
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "error"
+    "@typescript-eslint/no-use-before-define": "error",
+    "@typescript-eslint/ban-ts-comment" : 1
   },
   "settings": {
     "import/resolver": {

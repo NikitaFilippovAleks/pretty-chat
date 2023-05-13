@@ -8,29 +8,31 @@ import ProfileMainPage from './pages/profile/main';
 import RegistrationPage from './pages/registration';
 
 import buttonBack from './components/button/back/index';
-import buttonMain from './components/button/main/index.hbs';
+import buttonMain from './components/button/main/buttonMain.hbs';
 import chatsDialog from './components/chats/dialog/index.hbs';
 import chatsDialogForm from './components/chats/dialog/form/index';
 import chatsDialogHeader from './components/chats/dialog/header/index';
 import chatsList from './components/chats/list/index.hbs';
 import chatsListItem from './components/chats/list/item/index.hbs';
-import form from './components/form/index.hbs';
+import form from './components/form/form.hbs';
 import input from './components/input/text/index.hbs';
 import profileAvatar from './components/profile/avatar/index';
-import profileInfoEdit from './components/profile/info/edit/index.hbs';
+import profileInfoEdit from './components/profile/info/edit/profileInfoEdit.hbs';
 import profileInfoShow from './components/profile/info/show/index.hbs';
-import throbber from './components/throbber/index.hbs';
-import title from './components/title/index.hbs';
+import throbber from './components/throbber/throbber.hbs';
+import title from './components/title/title.hbs';
 
-import layoutCard from './layout/card/index.hbs';
-import layoutMain from './layout/main/index.hbs';
-import layoutProfile from './layout/profile/index.hbs';
-import layoutWindow from './layout/window/index.hbs';
+import layoutCard from './layout/card/layoutCard.hbs';
+import layoutMain from './layout/main/layoutMain.hbs';
+import layoutProfile from './layout/profile/layoutProfile.hbs';
+import layoutWindow from './layout/window/layoutWindow.hbs';
 
 import Router from './navigation/Router';
 import Routes from './navigation/Routes';
 
 import AuthController from './controllers/AuthController';
+
+import '../static/index.pcss';
 
 Handlebars.registerPartial({
   buttonBack,
@@ -74,11 +76,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
-    // console.log('routes:', Router)
     await AuthController.fetchUser();
 
-    // if (!user) throw new Error();
-    // console.log('here:', user)
     Router.start();
 
     if (!isProtectedRoute) {
@@ -92,3 +91,5 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
+
+// some comment
